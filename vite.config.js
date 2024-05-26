@@ -12,7 +12,7 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
 
-rollupOptions: {
+      rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
@@ -23,10 +23,8 @@ rollupOptions: {
           entryFileNames: 'commonHelpers.js',
         },
       },
-      external: ['izitoast'],
       outDir: '../dist',
     },
     plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });
-
